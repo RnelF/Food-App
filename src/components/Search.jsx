@@ -7,9 +7,12 @@ export default function Search() {
   const [query, setQuery] = useState("pizza");
   //useEffect  hook syntax
   useEffect(() => {
-    function fetchFood() {
-      fetch(`${URL}?query=${query}&apiKey=${API_KEY}`);
+    async function fetchFood() {
+      const res = await fetch(`${URL}?query=${query}&apiKey=${API_KEY}`);
+      const data = await res.json();
+      console.log(data);
     }
+    fetchFood();
   }, [query]);
 
   return (
