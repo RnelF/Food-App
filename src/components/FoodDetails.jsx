@@ -15,9 +15,26 @@ export default function FoodDetails({ foodId }) {
   }, [foodId]);
   return (
     <div>
-      {foodId}
-      {food.title}
-      <img src={food.image} />
+      <div>
+        <h1>{food.title}</h1>
+
+        <img src={food.image} />
+        <div>
+          <span>
+            <strong> 🕛{food.readyInMinutes} Minutes</strong>
+          </span>
+          <span>
+            <strong> Serves 👪 {food.servings} </strong>
+          </span>
+          <span>
+            {food.vegetarian ? " 🥕 Vegetarian" : "🍖 Non-vegetarian"}
+          </span>
+          <span>{food.vegan ? "🐄 Vegan" : ""}</span>
+        </div>
+        <div>
+          <span> ${parseInt(food.pricePerServing / 100)} Per Serving</span>
+        </div>
+      </div>
     </div>
   );
 }
